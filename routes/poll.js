@@ -16,9 +16,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(req.body);
   channels_client.trigger("os-poll", "os-vote", {
     points: 1,
-    o1s: req.body.os
+    os: req.body.os
   });
 
   return res.json({ success: true, message: "Thank you for voting" });
